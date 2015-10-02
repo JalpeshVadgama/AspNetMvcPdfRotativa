@@ -1,0 +1,26 @@
+﻿@model List<MvcPdf.Models.Customer>
+
+@{
+    ViewBag.Title = "PDF Title";
+    Layout = "_Layout";
+}
+
+<h2>Convert to  PDF</h2>
+
+<table class="table-striped">
+    <tr>
+        <td>First Name</td>
+        <td>Last name</td>
+        <td>Profile Image</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+
+            <td>@item.LastName</td>
+            <td><img src="@item.ProfileImage"/></td>
+        </tr>
+    }
+
+</table>
