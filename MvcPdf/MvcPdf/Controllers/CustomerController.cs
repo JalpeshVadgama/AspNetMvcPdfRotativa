@@ -1,4 +1,5 @@
 ﻿using MvcPdf.Models;
+using Rotativa;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -6,19 +7,30 @@ namespace MvcPdf.Controllers
 {
     public class CustomerController : Controller
     {
-        // GET: Customer
-        public ActionResult Index()
+        private List<Customer> _customers;
+
+        public CustomerController()
         {
             var imagePath = "profile.jpg";
-
-            var customers = new List<Customer>()
+            _customers = new List<Customer>()
             {
                 new Customer {CustomerId = 1, FirstName = "Jalpesh", LastName = "Vadgama", ProfileImage = imagePath},
                 new Customer {CustomerId = 1, FirstName = "Vishal", LastName = "Vadgama", ProfileImage = imagePath}
             };
+        }
 
-            return View(customers);
+        // GET: Customer
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View(_customers);
 
+        }
+
+
+        public ActionResult Print()
+        {
+            return new ActionAsPdf("Index", _customers);
         }
     }
 }

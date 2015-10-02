@@ -19,10 +19,10 @@
             <td>@item.FirstName</td>
 
             <td>@item.LastName</td>
-            <td><img src="@Url.Content("~/content/" + System.IO.Path.GetFileName(item.ProfileImage))" alt="" width="100" height="100" /></td>
+            <td><img src="@Url.Content("~/content/" + Path.GetFileName(item.ProfileImage))" alt="" width="100" height="100" /></td>
         </tr>
     }
 
 </table>    
-
-<input type="submit" value="Print as PDF"/>
+          
+@Html.ActionLink("Print", "Print", "Customer")
