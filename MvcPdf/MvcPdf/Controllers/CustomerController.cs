@@ -9,7 +9,7 @@ namespace MvcPdf.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var imagePath = Server.MapPath("content/profile.jpg");
+            var imagePath = "profile.jpg";
 
             var customers = new List<Customer>()
             {
