@@ -32,5 +32,11 @@ namespace MvcPdf.Controllers
         {
             return new ActionAsPdf("Index", _customers);
         }
+
+        public ActionResult PrintView()
+        {
+            return new ViewAsPdf("Index", _customers);
+        }
     }
+
 }
